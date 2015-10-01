@@ -2,7 +2,7 @@ __author__ = 'varg'
 
 
 def insert_to_brackets(v):
-    return '[' + str(v) + ']'
+    return "['" + str(v) + "']"
 
 
 def find_key(data_structure, key):
@@ -10,7 +10,7 @@ def find_key(data_structure, key):
         for i in range(0, len(data_structure)):
             path = find_key(data_structure[i], key)
             if path:
-                return insert_to_brackets(i) + path
+                return "[" + str(i) + "]" + path
 
     if isinstance(data_structure, dict):
         for dkey in data_structure:
