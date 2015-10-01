@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Path finder</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>bracket.png</normaloff>bracket.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
