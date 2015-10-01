@@ -26,6 +26,10 @@ class FinderWindowClass(QtGui.QMainWindow, form_class):
 
     def pushButton_clicked(self):
         text = str(self.textEdit.toPlainText())
+        text = text.replace('true', 'True')
+        text = text.replace('false', 'False')
+        text = text.replace('null', 'None')
+
         data_structure = string_to_dict(text)
         if not data_structure:
             self.resultLineEdit.setText('Incorrect data structure')
