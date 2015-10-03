@@ -13,11 +13,20 @@ class FinderWindowClass(QtGui.QMainWindow, form_class):
     def __init__(self, parent=None):
         QtGui.QMainWindow.__init__(self, parent)
         self.setupUi(self)
+        self.action_Open.setShortcut('Ctrl+O')
+        self.action_Open.triggered.connect(self.open_action)
         self.resultLineEdit.mousePressEvent = lambda _ : self.resultLineEdit.selectAll()
         self.pushButton.clicked.connect(self.pushButton_clicked)
         self.finder.returnPressed.connect(self.pushButton_clicked)
         self.finder.textChanged.connect(self.pushButton_clicked)
         self.textEdit.selectionChanged.connect(self.get_selected)
+
+    def open_action(self):
+        fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file')
+        if fname:
+            with open(fname, 'r') as f:
+                data = f.read()
+                self.textEdit.setText(data)
 
     def get_selected(self):
         cursor = self.textEdit.textCursor()
